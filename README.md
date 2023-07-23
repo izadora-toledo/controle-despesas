@@ -1,66 +1,56 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h3>REQUISITOS PARA RODAR A API</h3>
+<h4>Instalação do XAMPP</h4>
+Para instalar o XAMPP, siga os seguintes passos:
 
-## About Laravel
+* Acesse o site oficial do XAMPP (https://www.apachefriends.org/index.html) e faça o download da versão mais recente do XAMPP para o seu sistema operacional.
+* Abra o arquivo de instalação e siga as instruções do assistente de instalação. (Não troque o caminho onde ele vai instalar o xampp, deixe exatamente como está).
+* Selecione a opção de instalação do PHP durante a instalação.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Pronto, Xampp e PHP instalados com sucesso.
+<h3>RODANDO A API</h3>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h4>Executando o Xampp</h4>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Vá na pasta onde o xampp foi instalado: C:\xampp e procure pelo arquivo xampp-control e clique nele pra abrir.
+* Ele vai abrir um menu de controle e você vai clicar em start no Apache e no MySQL.
 
-## Learning Laravel
+- Abra o prompt de comando e execute o seguinte comando: cd C:\xampp\htdocs
+- Clone o projeto utilizado o comando git clone https://github.com/izadora-toledo/controle-despesas.git
+- Entre na pasta do projeto e instale as dependencias utilizando o comando composer install
+- Crie uma cópia do arquivo .env.example com o nome de .env
+- Gere a chave de criptografia utilizando o comando php artisan key:generate
+- Dentro do arquivo .env preencha os campos abaixo com os mesmos valores:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Utilize o comando php artisan migrate para criar as tabelas do banco de dados
+- Utilize o comando php artisan db:seed para popular as tabelas com alguns dados
+- Utilize o comando php artisan serve, isso irá executará o projeto na porta 8000
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p>Os testes do projeto foram feitos com o framework PHPUnit, para realizar os testes basta utilizar o comando php artisan test</p>
 
-## Laravel Sponsors
+<p>Inclua os dados abaixo no final do arquivo .env abaixo da linha JWT SECRET</p>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- JWT_PUBLIC_KEY=C:/xampp/htdocs/laravel-api/api/storage/keys/public.pem
+- JWT_PRIVATE_KEY=C:/xampp/htdocs/laravel-api/api/storage/keys/private.pem
 
-### Premium Partners
+<p>Pra testar a aplicação no frontend utilize o email e senha abaixo:</p>
+<p>EMAIL: admin@gmail.com</p>
+<p>SENHA: 12345678</p>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<p>Infelizmente não consegui fazer da forma que eu gostaria, faltou algumas coisas.</p>
+Algumas validações:
 
-## Contributing
+- O usuário logado só pode editar o próprio usuário dele.
+- O usuário logado só pode editar e excluir a própria despesa.
+- A despesa que for criada já vem vinculada ao usuário que está logado.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Muitas validações ficaram sem mensagens de erro e etc. Pra mim é novo mexer com vuejs então eu demorei um tempo a digerir como funciona realmente e ainda sigo tentando entender algumas coisas. De toda forma irei refatorar o projeto pra ficar 100% haha.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Foram usados PHP, Laravel, VueJS3 com Quasar. Usei PHPUnit para os testes e JWT pra autenticação. Não tive tempo de implementar os disparos dos e-mails.
