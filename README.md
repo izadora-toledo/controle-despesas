@@ -19,7 +19,7 @@ Pronto, Xampp e PHP instalados com sucesso.
 - Depois execute(é pra abrir o projeto no vscode): code .
 - Abra o terminal dentro do vscode
 - Clone o projeto utilizado o comando git clone https://github.com/izadora-toledo/controle-despesas.git
-  Depois execute: cd controle-despesas
+- Depois execute: cd controle-despesas
 - Instale as dependencias utilizando o comando: composer install
 - Crie uma cópia do arquivo .env.example com o nome de .env
 - Gere a chave de criptografia utilizando o comando: php artisan key:generate
