@@ -23,6 +23,7 @@ Pronto, Xampp e PHP instalados com sucesso.
 - Instale as dependencias utilizando o comando: composer install
 - Crie uma cópia do arquivo .env.example com o nome de .env
 - Gere a chave de criptografia utilizando o comando: php artisan key:generate (caso dê algum erro sobre autoload, use composer install novamente e depois tenta gerar a chave de novo)
+- Execute esse comando pra gerar a chave secreta do JWT: php artisan jwt:secret
 - Dentro do arquivo .env preencha os campos abaixo com os mesmos valores ou com os dados do seu banco mysql. Lembrando que por padrão ele vai criar um banco chamado laravel.
 
 DB_CONNECTION=mysql
