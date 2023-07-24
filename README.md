@@ -16,10 +16,13 @@ Pronto, Xampp e PHP instalados com sucesso.
 * Ele vai abrir um menu de controle e você vai clicar em start no Apache e no MySQL.
 
 - Abra o prompt de comando e execute o seguinte comando: cd C:\xampp\htdocs
+- Depois execute(é pra abrir o projeto no vscode): code .
+- Abra o terminal dentro do vscode
 - Clone o projeto utilizado o comando git clone https://github.com/izadora-toledo/controle-despesas.git
-- Entre na pasta do projeto e instale as dependencias utilizando o comando composer install
+  Depois execute: cd controle-despesas
+- Instale as dependencias utilizando o comando: composer install
 - Crie uma cópia do arquivo .env.example com o nome de .env
-- Gere a chave de criptografia utilizando o comando php artisan key:generate
+- Gere a chave de criptografia utilizando o comando: php artisan key:generate
 - Dentro do arquivo .env preencha os campos abaixo com os mesmos valores:
 
 DB_CONNECTION=mysql
@@ -29,9 +32,9 @@ DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
 
-- Utilize o comando php artisan migrate para criar as tabelas do banco de dados
-- Utilize o comando php artisan db:seed para popular as tabelas com alguns dados
-- Utilize o comando php artisan serve, isso irá executará o projeto na porta 8000
+- Utilize o comando: php artisan migrate para criar as tabelas do banco de dados
+- Utilize o comando: php artisan db:seed para popular as tabelas com alguns dados
+- Utilize o comando: php artisan serve, isso irá executará o projeto na porta 8000
 
 <p>Os testes do projeto foram feitos com o framework PHPUnit, para realizar os testes basta utilizar o comando php artisan test</p>
 
