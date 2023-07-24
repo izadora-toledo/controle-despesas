@@ -22,8 +22,8 @@ Pronto, Xampp e PHP instalados com sucesso.
 - Depois execute: cd controle-despesas
 - Instale as dependencias utilizando o comando: composer install
 - Crie uma cópia do arquivo .env.example com o nome de .env
-- Gere a chave de criptografia utilizando o comando: php artisan key:generate
-- Dentro do arquivo .env preencha os campos abaixo com os mesmos valores:
+- Gere a chave de criptografia utilizando o comando: php artisan key:generate (caso dê algum erro sobre autoload, use composer install novamente e depois tenta gerar a chave de novo)
+- Dentro do arquivo .env preencha os campos abaixo com os mesmos valores ou com os dados do seu banco mysql. Lembrando que por padrão ele vai criar um banco chamado laravel.
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -32,7 +32,7 @@ DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
 
-- Utilize o comando: php artisan migrate para criar as tabelas do banco de dados
+- Utilize o comando: php artisan migrate para criar as tabelas do banco de dados, ele vai te perguntar se deseja criar o banco laravel e você digita no terminal: yes
 - Utilize o comando: php artisan db:seed para popular as tabelas com alguns dados
 - Utilize o comando: php artisan serve, isso irá executará o projeto na porta 8000
 
